@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" tests="2">
+<testcase classname="Place Order" name="Place Order online" time="7.768032">
+<system-out><![CDATA[Given I visit the merchant site.......................................................passed
+When I place the order...........................................................passed
+Then I should see successful update message.................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Place Order" name="Verify Order delivery" time="0">
+<skipped><![CDATA[Given I visit order status page.......................................................undefined
+Then I should see order delivered status..................................................undefined
+]]></skipped>
+</testcase>
+</testsuite>

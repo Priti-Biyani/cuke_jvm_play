@@ -1,0 +1,82 @@
+<project name="java-helloworld" basedir="src" default="runcukes">
+
+    <property name="jars" value="lib"/>
+
+    <target name="classpath">
+        <path id="classpath">
+            <fileset dir="${jars}">
+                <include name="**/*.jar"/>
+            </fileset>
+            <pathelement location="target/classes"/>
+            <pathelement location="target/test-classes"/>
+        </path>
+    </target>
+
+
+    <target name="compile" depends="classpath">
+        <mkdir dir="target/classes"/>
+        <javac srcdir="test/cuke" destdir="target/classes" classpathref="classpath" includeantruntime="false"/>
+    </target>
+
+    <target name="compile-test" depends="compile,classpath">
+        <mkdir dir="target/test-classes"/>
+        <javac srcdir="test/cuke" destdir="target/test-classes" classpathref="classpath" includeantruntime="false"/>
+    </target>
+
+    <target name="runcuke1" depends="compile-test">
+
+    <mkdir dir="target/cucumber-junit-report"/>
+
+        <java classname="cucumber.api.cli.Main" fork="true" failonerror="false" resultproperty="cucumber.exitstatus">
+            <classpath refid="classpath"/>
+            <arg value="--format"/>
+            <arg value="junit:target/cucumber-junit-report/allcukes.xml"/>
+            <arg value="--format"/>
+            <arg value="pretty"/>
+            <arg value="--format"/>
+            <arg value="html:target/cucumber-html-report"/>
+            <arg value="--glue"/>
+            <arg value="test.cuke"/>
+            <arg value="test/cuke/PlaceOrder.feature"/>
+            <sysproperty key="name" value="${name}"/>
+            <sysproperty key="quantity" value="${quantity}" />
+            <sysproperty key="address" value="${address}"/>
+            <!--<env key="name" value="${name}"/>-->
+            <!--<env key="address" value="${address}"/>-->
+            <!--<env key="quantity" value="${quantity}"/>-->
+
+        </java>
+
+    </target>
+
+
+    <target name="runcuke2" depends="compile-test">
+
+        <mkdir dir="target/cucumber-junit-report"/>
+
+        <java classname="cucumber.api.cli.Main" fork="true" failonerror="false" resultproperty="cucumber.exitstatus">
+            <classpath refid="classpath"/>
+            <arg value="--format"/>
+            <arg value="junit:target/cucumber-junit-report/allcukes.xml"/>
+            <arg value="--format"/>
+            <arg value="pretty"/>
+            <arg value="--format"/>
+            <arg value="html:target/cucumber-html-report"/>
+            <arg value="--glue"/>
+            <arg value="test.cuke"/>
+            <arg value="test/cuke/VerifyOrder.feature"/>
+            <sysproperty key="order_id" value="${order_id}"/>
+        </java>
+
+    </target>
+
+
+    <target name="clean">
+        <delete dir="target"/>
+    </target>
+
+    <target name="clobber" depends="clean">
+        <delete dir="${jars}"/>
+    </target>
+
+</project>

@@ -1,0 +1,10 @@
+contracts:
+  place_order:
+    dir: "/Users/priti/TRYSTUFF/cuke_jvm_play_new/Cuke_JVM/"
+    command: "ant runcukes"
+    input_param_format: "-Dkey=value"
+    input_params:
+      name:
+      address:
+      quantity:
+

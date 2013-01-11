@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" tests="1">
+<testcase classname="Verify Order" name="Verify Order delivery" time="7.017019">
+<system-out><![CDATA[Given I visit order status page.......................................................passed
+Then I should see order delivered status..................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

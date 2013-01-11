@@ -1,0 +1,68 @@
+[
+  {
+    "id": "place-order",
+    "description": "",
+    "name": "Place Order",
+    "keyword": "Feature",
+    "line": 1,
+    "elements": [
+      {
+        "id": "place-order;place-order-online",
+        "description": "",
+        "name": "Place Order online",
+        "keyword": "Scenario",
+        "line": 3,
+        "steps": [
+          {
+            "name": "I visit the merchant site",
+            "keyword": "Given ",
+            "line": 4
+          },
+          {
+            "name": "I place the order",
+            "keyword": "When ",
+            "line": 5
+          },
+          {
+            "result": {
+              "duration": 10425000,
+              "status": "passed"
+            },
+            "name": "I should see successful update message",
+            "keyword": "Then ",
+            "line": 6,
+            "match": {
+              "location": "PlaceOrderStepDefn.I_should_see_successful_update_message()"
+            }
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "place-order;verify-order-delivery",
+        "description": "",
+        "name": "Verify Order delivery",
+        "keyword": "Scenario",
+        "line": 9,
+        "steps": [
+          {
+            "name": "I visit order status page",
+            "keyword": "Given ",
+            "line": 10
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "name": "I should see order delivered status",
+            "keyword": "Then ",
+            "line": 11,
+            "match": {}
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "uri": "test/cuke/PlaceOrder.feature"
+  }
+]
